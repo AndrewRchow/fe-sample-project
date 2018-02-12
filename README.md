@@ -1,4 +1,4 @@
--Html page located in  Views > Home > Index
-=Angular Controller/Service in Scripts > Index
+-Html page located in  Views > Home > Index <br />
+=Angular Controller/Service in Scripts > Index <br />
 =CSS in Styles
 

@@ -1,0 +1,51 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<link href="~/Styles/Main.css" rel="stylesheet" />
+
+<h1>Shop our featured collection</h1>
+<div class="row" ng-repeat="products in IndexCtr.productList">
+    <div class="clothingItem col-md-3" ng-repeat="product in products">
+        <img src="{{product.filelocation}}" />
+        <h4>{{product.name}}</h4>
+        <h3>${{product.price}}</h3>
+        <button type="button" class="btn btn-default" ng-click="IndexCtr.addToCart($event)">Add to cart</button>
+        <input type="number" style="display:none" ng-model="product.itemNumber">
+    </div>
+</div>
+
+<div id="myModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <h1>Your Cart</h1>
+                <div class="noItemMessage" ng-if="IndexCtr.cartTotalPrice=='0'">
+                    <h1>Nothing in your cart, start shopping.</h1>
+                </div>
+                <div class="row" ng-repeat="item in IndexCtr.cartItems">
+                    <div class="modalImage col-md-3">
+                        <img src="{{item.filelocation}}" />
+                    </div>
+                    <div class="modalDescription col-md-8">
+                        <h4>{{item.name}}</h4>
+                        <h3>${{item.price}}</h3>
+                    </div>
+                    <div class="modalIcon col-md-1">
+                        <i class="fa fa-times-circle" ng-click="IndexCtr.removeItem($event)"></i>
+                        <input type="number" style="display:none" ng-model="item.itemNumber">
+                    </div>
+                </div>
+                <hr>
+                <div class="row modalTotal">
+                    <div class="col-md-6 firstColumn">
+                        <h1>Total</h1>
+                    </div>
+                    <div class="col-md-6 secondColumn">
+                        <h1>${{IndexCtr.cartTotalPrice}}</h1>
+                    </div>
+                </div>
+                <button class="btn backButton" data-dismiss="modal" aria-hidden="true">Back</button>
+            </div>
+        </div>      
+    </div>
+</div>

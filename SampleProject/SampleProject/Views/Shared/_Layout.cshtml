@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html ng-app="mainApp">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet"> @*For Lato font*@
+    <link href="~/Styles/NavBar.css" rel="stylesheet" />
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Scripts/mainApp.js"></script>
+    <script src="~/Scripts/Index/IndexController.js"></script>
+    <script src="~/Scripts/Index/IndexService.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div ng-controller="IndexController as IndexCtr">
+        <div class="container">
+            <div class="row">
+                <div class="navbar navbar-inverse navbar-fixed-top">
+                    <div class="row">
+                        <div class="col-md-1 imageLogo">
+                            <img src="~/Images/CartlyLogo.png" height="38" id="cartlyLogo" />
+                        </div>
+                        <div class="col-md-5">
+                            <div class="pageHeader">
+                                <a>Shop</a>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div id="cartAmount">
+                                <label href="#myModal" data-toggle="modal" class="cartAmountLabel">Your Cart</label>
+                                <input size="4" readonly ng-model="IndexCtr.cartCount">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container body-content">
+            @RenderBody()
+        </div>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
